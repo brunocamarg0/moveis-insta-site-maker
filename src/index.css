@@ -87,6 +87,11 @@ All colors MUST be HSL.
   }
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 @layer utilities {
   .text-wood {
     color: hsl(var(--wood));
