@@ -51,12 +51,13 @@ const Footer = () => {
             {/* Social Media */}
             <div className="flex space-x-4">
               <Button
-                variant="outline"
-                size="sm"
-                className="border-white/30 text-white hover:bg-white hover:text-wood"
+                variant="ghost"
+                size="icon"
+                className="hover:bg-white/10"
                 onClick={() => window.open('https://www.instagram.com/maiconmelomoveis/', '_blank')}
+                aria-label="Instagram"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-6 h-6 text-wood" />
               </Button>
             </div>
           </div>
