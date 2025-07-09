@@ -33,21 +33,21 @@ const Contact = () => {
     e.preventDefault();
     // Here you would typically send the form data to a backend service
     const whatsappMessage = `Olá! Gostaria de solicitar um orçamento.%0A%0ANome: ${formData.name}%0AEmail: ${formData.email}%0ATelefone: ${formData.phone}%0AMensagem: ${formData.message}`;
-    window.open(`https://wa.me/5511999999999?text=${whatsappMessage}`, '_blank');
+    window.open(`https://wa.me/5519971067197?text=${whatsappMessage}`, '_blank');
   };
 
   const contactInfo = [
     {
       icon: Phone,
       title: "Telefone",
-      value: "(11) 99999-9999",
-      action: () => window.open('tel:+5511999999999', '_self')
+      value: "(19) 97106-7197",
+      action: () => window.open('tel:+5519971067197', '_self')
     },
     {
       icon: MessageCircle,
       title: "WhatsApp",
-      value: "(11) 99999-9999",
-      action: () => window.open('https://wa.me/5511999999999', '_blank')
+      value: "(19) 97106-7197",
+      action: () => window.open('https://wa.me/5519971067197', '_blank')
     },
     {
       icon: Mail,
