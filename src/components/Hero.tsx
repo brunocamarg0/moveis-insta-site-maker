@@ -40,7 +40,7 @@ const Hero = () => {
             <Button 
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-black px-8 py-6 text-lg"
+              className="border-white text-black hover:bg-white hover:text-black px-8 py-6 text-lg"
               onClick={() => document.getElementById('projetos')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Ver Projetos
