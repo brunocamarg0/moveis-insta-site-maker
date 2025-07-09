@@ -6,12 +6,12 @@ import { Badge } from "@/components/ui/badge";
 import { Eye, ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const kitchenImages = [
-  "/IMG01.png",
-  "/IMG02.png",
-  "/IMG03.png",
-  "/IMG04.png",
-  "/IMG05.png",
-  "/IMG06.png",
+  "/IMG01.jpg",
+  "/IMG02.jpg",
+  "/IMG03.jpg",
+  "/IMG04.jpg",
+  "/IMG05.jpg",
+  "/IMG06.jpg",
 ];
 
 const Projects = () => {
