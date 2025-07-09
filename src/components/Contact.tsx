@@ -220,14 +220,12 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
-                  Rua dos Móveis, 123<br />
-                  Centro - São Paulo, SP<br />
-                  CEP: 01234-567
+                  Paulínia, SP
                 </p>
                 <Button 
                   variant="outline"
                   className="w-full border-wood text-wood hover:bg-wood hover:text-white"
-                  onClick={() => window.open('https://maps.google.com/?q=Rua+dos+Móveis+123+São+Paulo', '_blank')}
+                  onClick={() => window.open('https://maps.google.com/?q=Paulínia+SP', '_blank')}
                 >
                   <MapPin className="w-4 h-4 mr-2" />
                   Ver no Google Maps
