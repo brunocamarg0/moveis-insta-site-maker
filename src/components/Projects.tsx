@@ -3,10 +3,21 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Eye, ArrowRight } from "lucide-react";
+import { Eye, ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react";
+
+const kitchenImages = [
+  "/IMG01.png",
+  "/IMG02.png",
+  "/IMG03.png",
+  "/IMG04.png",
+  "/IMG05.png",
+  "/IMG06.png",
+];
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("todos");
+  const [showModal, setShowModal] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
 
   const categories = [
     { id: "todos", label: "Todos os Projetos" },
@@ -123,7 +134,12 @@ const Projects = () => {
                   className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Button size="sm" variant="secondary">
+                  <Button size="sm" variant="secondary" onClick={() => {
+                    if (project.category === 'cozinha') {
+                      setShowModal(true);
+                      setCurrentImage(0);
+                    }
+                  }}>
                     <Eye className="w-4 h-4 mr-2" />
                     Ver Detalhes
                   </Button>
@@ -139,6 +155,45 @@ const Projects = () => {
             </Card>
           ))}
         </div>
+
+        {/* Modal/Carrossel para projetos de cozinha */}
+        {showModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+            <div className="bg-white rounded-lg shadow-lg max-w-2xl w-full p-4 relative animate-fade-in-up">
+              <button
+                className="absolute top-2 right-2 text-gray-500 hover:text-wood"
+                onClick={() => setShowModal(false)}
+                aria-label="Fechar"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <div className="flex items-center justify-center">
+                <button
+                  className="p-2 text-wood hover:bg-wood/10 rounded-full"
+                  onClick={() => setCurrentImage((prev) => (prev === 0 ? kitchenImages.length - 1 : prev - 1))}
+                  aria-label="Imagem anterior"
+                >
+                  <ChevronLeft className="w-8 h-8" />
+                </button>
+                <img
+                  src={kitchenImages[currentImage]}
+                  alt={`Cozinha ${currentImage + 1}`}
+                  className="max-h-96 max-w-full rounded-lg mx-4"
+                />
+                <button
+                  className="p-2 text-wood hover:bg-wood/10 rounded-full"
+                  onClick={() => setCurrentImage((prev) => (prev === kitchenImages.length - 1 ? 0 : prev + 1))}
+                  aria-label="Próxima imagem"
+                >
+                  <ChevronRight className="w-8 h-8" />
+                </button>
+              </div>
+              <div className="text-center mt-2 text-sm text-muted-foreground">
+                {currentImage + 1} / {kitchenImages.length}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Call to Action */}
         <div className="text-center">

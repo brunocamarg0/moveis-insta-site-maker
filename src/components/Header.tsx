@@ -11,18 +11,22 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <img 
-              src="/logo.png" 
-              alt="Logo Maicon Melo" 
-              className="w-10 h-10 rounded-full object-cover border border-wood bg-white" 
-              style={{ background: 'white' }}
-            />
-            <h1 className="text-2xl md:text-3xl font-bold text-wood">
-              Maicon Melo
-            </h1>
-            <span className="text-lg text-gold font-medium hidden sm:block">
-              Móveis Planejados
-            </span>
+            <a href="#inicio" className="flex items-center space-x-2 group focus:outline-none focus:ring-2 focus:ring-wood">
+              <img 
+                src="/logo.png" 
+                alt="Logo Maicon Melo" 
+                className="w-10 h-10 rounded-full object-cover border border-wood bg-white transition-transform group-hover:scale-105" 
+                style={{ background: 'white' }}
+              />
+              <span>
+                <h1 className="text-2xl md:text-3xl font-bold text-wood leading-tight">
+                  Maicon Melo
+                </h1>
+                <span className="text-lg text-gold font-medium hidden sm:block">
+                  Móveis Planejados
+                </span>
+              </span>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
