@@ -11,7 +11,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <a href="#inicio" className="flex items-center space-x-2 group focus:outline-none focus:ring-2 focus:ring-wood">
+            <a href="#inicio" className="flex items-center space-x-2 group">
               <img 
                 src="/logo.png" 
                 alt="Logo Maicon Melo" 
