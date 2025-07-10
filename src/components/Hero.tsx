@@ -1,22 +1,67 @@
 
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Award, Users } from "lucide-react";
+import { ArrowRight, Star, Award, Users, ChevronLeft, ChevronRight } from "lucide-react";
+
+const heroImages = [
+  "/IMG2.jpg",
+  "/IMG3.jpg",
+  "/IMG4.jpg",
+  "/IMG_1579.jpeg",
+  "/IMG_1580.jpeg",
+  "/IMG_1581.jpeg",
+  "/IMG_1582.jpeg",
+  "/IMG_1583.jpeg",
+];
 
 const Hero = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const goToPrev = () => setCurrent((prev) => (prev === 0 ? heroImages.length - 1 : prev - 1));
+  const goToNext = () => setCurrent((prev) => (prev + 1) % heroImages.length);
+
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-          alt="Móveis Planejados"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50"></div>
+      {/* Carrossel de Imagens de Fundo */}
+      <div className="absolute inset-0 z-0 transition-all duration-700">
+        {heroImages.map((img, idx) => (
+          <img
+            key={img}
+            src={img}
+            alt={`Banner ${idx + 1}`}
+            className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-700 ${idx === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+            style={{ transition: 'opacity 0.7s' }}
+          />
+        ))}
+        {/* Setas de navegação */}
+        <button
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full z-20 hover:bg-black/70"
+          onClick={goToPrev}
+          aria-label="Imagem anterior"
+        >
+          <ChevronLeft className="w-7 h-7" />
+        </button>
+        <button
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full z-20 hover:bg-black/70"
+          onClick={goToNext}
+          aria-label="Próxima imagem"
+        >
+          <ChevronRight className="w-7 h-7" />
+        </button>
       </div>
 
+      {/* Overlay escura */}
+      <div className="absolute inset-0 bg-black/50 z-10"></div>
+
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
+      <div className="relative z-20 container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto animate-fade-in-up">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Móveis Planejados
@@ -77,7 +122,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
         </div>
