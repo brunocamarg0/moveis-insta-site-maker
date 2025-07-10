@@ -1,4 +1,6 @@
-# Welcome to your Lovable project
+# Maicon Melo Móveis Planejados
+
+<!-- Forçando novo deploy na Vercel em 2025-07-21 -->
 
 ## Project info
 
